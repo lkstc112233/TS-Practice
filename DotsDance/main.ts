@@ -48,6 +48,9 @@ document.addEventListener('keydown', (ev)=>{
     }
     if (ev.keyCode == 68) {
         count += 1;
+        if (count >= 100) {
+            count = 100;
+        }
     }
 });
 
