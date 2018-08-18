@@ -1,3 +1,5 @@
+import {Character} from './Character'
+
 let hello = document.getElementById("hello")!;
 
 hello.innerText = 'Hello world!';
@@ -11,6 +13,9 @@ let centerY = 200;
 const radius = 100;
 
 let count = 1;
+
+const char1 = new Character();
+const char2 = new Character();
 
 function drawLine(count:number = 1) {
     context.beginPath();

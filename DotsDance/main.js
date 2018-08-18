@@ -1,4 +1,6 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var Character_1 = require("./Character");
 var hello = document.getElementById("hello");
 hello.innerText = 'Hello world!';
 var canvas = document.getElementById("canvas");
@@ -8,6 +10,8 @@ var centerX = 200;
 var centerY = 200;
 var radius = 100;
 var count = 1;
+var char1 = new Character_1.Character();
+var char2 = new Character_1.Character();
 function drawLine(count) {
     if (count === void 0) { count = 1; }
     context.beginPath();
