@@ -5,7 +5,8 @@ export class Character {
     position = new Point();
 
     draw(context: CanvasRenderingContext2D) {
-        const radius = Math.sin(this.frame) * 20 + 50;
+        // const radius = Math.sin(this.frame) * 20 + 50;
+        const radius = 50;
         this.frame += Math.PI / 60;
         
         // context.ellipse(this.x, this.y, radius, radius, 0, 0, Math.PI);
