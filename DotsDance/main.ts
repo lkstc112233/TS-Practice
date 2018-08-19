@@ -18,19 +18,22 @@ function gameLoop() {
     requestAnimationFrame(gameLoop);
     context.clearRect(0, 0, canvas.width, canvas.height);
     vel.plus(acc);
+    vel.mul(0.95);
     char1.position.plus(vel);
     char1.draw(context);
 }
 
+const defaultAcc = 0.05;
+
 document.addEventListener('keydown', (ev)=>{
     if (ev.keyCode == 65) {         // 'A'
-        acc.x = -0.01;
+        acc.x = -defaultAcc;
     } else if (ev.keyCode == 68) {  // 'D'
-        acc.x = 0.01;
+        acc.x = defaultAcc;
     } else if (ev.keyCode == 87) {  // 'W'
-        acc.y = -0.01;
+        acc.y = -defaultAcc;
     } else if (ev.keyCode == 83) {  // 'S'
-        acc.y = 0.01;
+        acc.y = defaultAcc;
     }
 });
 
