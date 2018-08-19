@@ -10,6 +10,6 @@ export class Character {
         this.frame += Math.PI / 60;
         
         // context.ellipse(this.x, this.y, radius, radius, 0, 0, Math.PI);
-        context.fillRect(this.position.x, this.position.y, radius, radius);
+        context.fillRect(this.position.x - radius / 2, this.position.y - radius / 2, radius, radius);
     }
 }
