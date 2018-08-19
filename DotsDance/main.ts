@@ -18,16 +18,16 @@ function gameLoop() {
 
 document.addEventListener('keydown', (ev)=>{
     if (ev.keyCode == 65) { // 'A'
-        char1.x -= 3;
+        char1.position.x -= 3;
     }
     if (ev.keyCode == 68) { // 'D'
-        char1.x += 3;
+        char1.position.x += 3;
     }
     if (ev.keyCode == 87) { // 'W'
-        char1.y -= 3;
+        char1.position.y -= 3;
     }
     if (ev.keyCode == 83) { // 'S'
-        char1.y += 3;
+        char1.position.y += 3;
     }
 });
 
