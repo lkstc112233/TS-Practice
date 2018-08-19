@@ -1,4 +1,5 @@
 import {Character} from './Character'
+import { Point } from './xyTuple';
 
 let hello = document.getElementById("hello")!;
 
@@ -9,6 +10,8 @@ const context = canvas.getContext('2d')!;
 
 const char1 = new Character();
 const char2 = new Character();
+
+const acc = new Point(0,0);
 
 function gameLoop() {
     requestAnimationFrame(gameLoop);

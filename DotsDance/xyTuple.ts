@@ -1,6 +1,11 @@
 export class Point {
-    private m_x = 0;
-    private m_y = 0;
+    private m_x: number;
+    private m_y: number;
+    constructor(x: number = 0, y: number = 0) {
+        this.m_x = x;
+        this.m_y = y;
+    }
+
     get x() : number {
         return this.m_x;
     }

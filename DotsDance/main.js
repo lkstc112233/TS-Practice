@@ -1,4 +1,4 @@
-define(["require", "exports", "./Character"], function (require, exports, Character_1) {
+define(["require", "exports", "./Character", "./xyTuple"], function (require, exports, Character_1, xyTuple_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     var hello = document.getElementById("hello");
@@ -7,6 +7,7 @@ define(["require", "exports", "./Character"], function (require, exports, Charac
     var context = canvas.getContext('2d');
     var char1 = new Character_1.Character();
     var char2 = new Character_1.Character();
+    var acc = new xyTuple_1.Point(0, 0);
     function gameLoop() {
         requestAnimationFrame(gameLoop);
         context.clearRect(0, 0, canvas.width, canvas.height);
