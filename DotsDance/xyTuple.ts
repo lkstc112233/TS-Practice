@@ -16,4 +16,9 @@ export class Point {
     set y(val: number) {
         this.m_y = val;
     }
+
+    plus(another:Point) {
+        this.x += another.x;
+        this.y += another.y;
+    }
 }
