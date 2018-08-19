@@ -36,6 +36,7 @@ function gameLoop() {
     angle += Math.PI / 60;
     context.clearRect(0, 0, canvas.width, canvas.height);
     drawLine(count);
+    char1.draw(context);
 }
 
 canvas.addEventListener("mousemove",(ev) => {
@@ -45,18 +46,19 @@ canvas.addEventListener("mousemove",(ev) => {
 });
 
 document.addEventListener('keydown', (ev)=>{
-    if (ev.keyCode == 65) {
-        count -= 1;
-        if (count <= 0) {
-            count = 1;
-        }
+    if (ev.keyCode == 65) { // 'A'
+        char1.x -= 3;
     }
-    if (ev.keyCode == 68) {
-        count += 1;
-        if (count >= 100) {
-            count = 100;
-        }
+    if (ev.keyCode == 68) { // 'D'
+        char1.x += 3;
     }
+    if (ev.keyCode == 87) { // 'W'
+        char1.y -= 3;
+    }
+    if (ev.keyCode == 83) { // 'S'
+        char1.y += 3;
+    }
+    console.log(ev.keyCode);
 });
 
 requestAnimationFrame(gameLoop);

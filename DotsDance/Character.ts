@@ -21,6 +21,8 @@ export class Character {
     draw(context: CanvasRenderingContext2D) {
         const radius = Math.sin(this.frame) * 20 + 50;
         this.frame += Math.PI / 60;
-        context.ellipse(this.x, this.y, radius, radius, 0, 0, Math.PI);
+        
+        // context.ellipse(this.x, this.y, radius, radius, 0, 0, Math.PI);
+        context.fillRect(this.x, this.y, radius, radius);
     }
 }
