@@ -27,6 +27,10 @@ export class Point {
         this.y += another.y;
     }
 
+    minus(another: Point):Point {
+        return new Point(this.x - another.x,this.y - another.y);
+    }
+
     mul(ratio: number) {
         this.x *= ratio;
         this.y *= ratio;
