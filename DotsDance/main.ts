@@ -36,7 +36,7 @@ function gameLoop() {
         acc.zero();
     }
     vel.plus(acc);
-    vel.mul(0.95);
+    vel.mul(0.97);
     char1.position.plus(vel);
     char1.draw(context);
 }
