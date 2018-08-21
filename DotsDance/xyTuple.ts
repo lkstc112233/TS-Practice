@@ -38,6 +38,9 @@ export class Point {
 
     normalize() {
         const ratio = Math.sqrt(this.x * this.x + this.y * this.y);
+        if (ratio == 0) {
+            return;
+        }
         this.x /= ratio;
         this.y /= ratio;
     }
