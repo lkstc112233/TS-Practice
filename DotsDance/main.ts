@@ -60,28 +60,4 @@ canvas.addEventListener("mouseup", (ev) => {
     }
 });
 
-document.addEventListener('keydown', (ev)=>{
-    if (ev.keyCode == 65) {         // 'A'
-        acc.x = -defaultAcc;
-    } else if (ev.keyCode == 68) {  // 'D'
-        acc.x = defaultAcc;
-    } else if (ev.keyCode == 87) {  // 'W'
-        acc.y = -defaultAcc;
-    } else if (ev.keyCode == 83) {  // 'S'
-        acc.y = defaultAcc;
-    }
-});
-
-document.addEventListener('keyup', (ev)=>{
-    if (ev.keyCode == 65) {         // 'A'
-        acc.x = 0;
-    } else if (ev.keyCode == 68) {  // 'D'
-        acc.x = 0;
-    } else if (ev.keyCode == 87) {  // 'W'
-        acc.y = 0;
-    } else if (ev.keyCode == 83) {  // 'S'
-        acc.y = 0;
-    }
-});
-
 requestAnimationFrame(gameLoop);
