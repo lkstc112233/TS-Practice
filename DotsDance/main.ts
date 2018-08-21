@@ -23,7 +23,7 @@ function gameLoop() {
     char1.draw(context);
 }
 
-const defaultAcc = 0.05;
+const defaultAcc = 0.1;
 
 document.addEventListener('keydown', (ev)=>{
     if (ev.keyCode == 65) {         // 'A'
