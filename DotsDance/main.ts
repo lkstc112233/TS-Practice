@@ -1,10 +1,6 @@
 import {Character} from './Character'
 import { Point } from './xyTuple';
 
-let hello = document.getElementById("hello")!;
-
-hello.innerText = 'Hello world!';
-
 const canvas = document.getElementById("canvas") as HTMLCanvasElement;
 const context = canvas.getContext('2d')!;
 
