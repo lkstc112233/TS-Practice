@@ -4,8 +4,8 @@ import { Point } from './xyTuple';
 const canvas = document.getElementById("canvas") as HTMLCanvasElement;
 const context = canvas.getContext('2d')!;
 
-const char1 = new Character();
-const char2 = new Character();
+const char = new Character();
+const controller = new Character();
 
 const acc = new Point();
 const vel = new Point();
@@ -18,7 +18,7 @@ function updateMouseAcc() {
     var rect = canvas.getBoundingClientRect();
     acc.x = mouseX - rect.left;
     acc.y = mouseY - rect.top;
-    acc.minus(char1.position);
+    acc.minus(char.position);
     acc.normalize();
     acc.mul(0.15);
 }
@@ -33,8 +33,8 @@ function gameLoop() {
     }
     vel.plus(acc);
     vel.mul(0.97);
-    char1.position.plus(vel);
-    char1.draw(context);
+    char.position.plus(vel);
+    char.draw(context);
 }
 
 const defaultAcc = 0.1;
