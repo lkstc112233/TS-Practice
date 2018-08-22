@@ -9,6 +9,6 @@ export class Character {
         const radius = 25;
         this.frame += Math.PI / 60;
         
-        circle(context, this.position.x, this.position.y, radius, '#0004');
+        circle(context, this.position.x, this.position.y, radius, 'black');
     }
 }
