@@ -41,6 +41,15 @@ export class Point {
         this.x = this.y = 0;
     }
 
+    get length(): number {
+        return Math.sqrt(this.x * this.x + this.y * this.y);
+    }
+
+    set length(length: number) {
+        this.normalize();
+        this.mul(length);
+    }
+
     normalize() {
         const ratio = Math.sqrt(this.x * this.x + this.y * this.y);
         if (ratio == 0) {
