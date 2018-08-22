@@ -24,6 +24,28 @@ function gameLoop() {
 
 const defaultAcc = 0.1;
 
+canvas.addEventListener("touchmove",(ev) => {
+    var rect = canvas.getBoundingClientRect();
+    var x = ev.touches[0].clientX - rect.left;
+    var y = ev.touches[0].clientY - rect.top;
+    controller.touchUpdate(new Point(x, y));
+});
+
+canvas.addEventListener("touchstart", (ev) => {
+    if (ev.touches.length == 1) {
+        var rect = canvas.getBoundingClientRect();
+        var x = ev.touches[0].clientX - rect.left;
+        var y = ev.touches[0].clientY - rect.top;
+        controller.touchBegin(new Point(x, y));
+    }
+});
+
+canvas.addEventListener("touchend", (ev) => {
+    if (ev.touches.length == 0) {
+        controller.touchEnd();
+    }
+});
+
 canvas.addEventListener("mousemove",(ev) => {
     var rect = canvas.getBoundingClientRect();
     var x = ev.clientX - rect.left;
