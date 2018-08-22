@@ -30,7 +30,7 @@ export class Controller {
     }
 
     getControllerValue(): Point {
-        if (!this.touching) {
+        if (!this.isTouching) {
             return new Point();
         }
         const result:Point = Object.create(this.touching);
