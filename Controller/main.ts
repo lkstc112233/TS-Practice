@@ -1,11 +1,12 @@
 import {Character} from './Character'
 import { Point } from './xyTuple';
+import { Controller } from './Controller';
 
 const canvas = document.getElementById("canvas") as HTMLCanvasElement;
 const context = canvas.getContext('2d')!;
 
 const char = new Character();
-const controller = new Character();
+const controller = new Controller();
 
 const acc = new Point();
 const vel = new Point();
