@@ -1,4 +1,4 @@
-import {Character} from './Character'
+import { Character } from './Character'
 import { Point } from './xyTuple';
 import { Controller } from './Controller';
 
