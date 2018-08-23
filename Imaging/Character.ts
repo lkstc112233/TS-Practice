@@ -1,5 +1,5 @@
-import {Point} from './xyTuple'
-import {circle} from './DrawingHelper'
+import { Point } from './xyTuple';
+import { circle } from './DrawingHelper';
 
 export class Character {
     private frame = 0;
