@@ -1,6 +1,7 @@
-import { Character } from './Character'
+import { Character } from './Character';
 import { Point } from './xyTuple';
 import { Controller } from './Controller';
+import { loadedImageSum, totalImageSum, loadAll } from './Images';
 
 const canvas = document.getElementById("canvas") as HTMLCanvasElement;
 const context = canvas.getContext('2d')!;
@@ -9,6 +10,24 @@ const char = new Character();
 const controller = new Controller();
 
 const vel = new Point();
+
+function loadLoop() {
+    if (loadedImageSum != totalImageSum) {
+        requestAnimationFrame(loadLoop);
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        const ratio = loadedImageSum / totalImageSum;
+        context.beginPath();
+        context.moveTo(0, canvas.height / 2);
+        context.lineWidth = 30;
+        context.strokeStyle = '#f00';
+        context.lineTo(ratio * canvas.width, canvas.height / 2);
+        context.strokeStyle = '#00f';
+        context.lineTo(canvas.width, canvas.height / 2);
+        context.stroke();
+    } else {
+        requestAnimationFrame(gameLoop);
+    }
+}
 
 function gameLoop() {
     requestAnimationFrame(gameLoop);
@@ -68,4 +87,5 @@ canvas.addEventListener("mouseup", (ev) => {
     }
 });
 
-requestAnimationFrame(gameLoop);
+loadAll();
+requestAnimationFrame(loadLoop);
