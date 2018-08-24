@@ -12,7 +12,5 @@ export class Character {
         
         context.drawImage(ImagesLoaded.BODY, 0, 0, 16, 16, this.position.x, this.position.y, size, size);
         context.drawImage(ImagesLoaded.HEAD, 0, 0, 16, 16, this.position.x, this.position.y, size, size);
-
-        // circle(context, this.position.x, this.position.y, radius, 'black');
     }
 }
