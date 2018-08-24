@@ -14,9 +14,14 @@ export class Character {
 
         // Draw spirit
         const size = 40;
-        this.frame += Math.PI / 60;
+        this.frame += this.velocity.length;
+        const WALKING_CONSTANT = 30;
+        const WALKING_STEPS = [0, 1, 0, 2];
+        while (this.frame > WALKING_CONSTANT * 4) {
+            this.frame -= WALKING_CONSTANT * 4;
+        }
 
-        drawImage(context, 'BODY', 0, this.velocity.direction, this.position.x, this.position.y, size);
+        drawImage(context, 'BODY', WALKING_STEPS[Math.floor(this.frame / WALKING_CONSTANT)], this.velocity.direction, this.position.x, this.position.y, size);
         drawImage(context, 'HEAD', 0, this.velocity.direction, this.position.x, this.position.y, size);
     }
 }
