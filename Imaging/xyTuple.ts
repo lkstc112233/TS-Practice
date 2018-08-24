@@ -58,7 +58,7 @@ export class Point {
     }
 
     get direction(): Direction {
-        const THRESHOLD = 0.001;
+        const THRESHOLD = 0.05;
         if (this.length < THRESHOLD) {
             return Direction.DOWN;
         }
