@@ -34,9 +34,7 @@ function gameLoop() {
     context.clearRect(0, 0, canvas.width, canvas.height);
     const acc = controller.getControllerValue();
     acc.mul(0.3);
-    vel.plus(acc);
-    vel.mul(0.97);
-    char.position.plus(vel);
+    char.velocity.plus(acc);
     char.draw(context);
     controller.draw(context);
 }
