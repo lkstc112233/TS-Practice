@@ -1,6 +1,6 @@
 import { Point } from './xyTuple';
-import { circle } from './DrawingHelper';
-import { ImagesLoaded } from './Images';
+import { circle, drawImage } from './DrawingHelper';
+import { Images } from './Images';
 
 export class Character {
     private frame = 0;
@@ -15,8 +15,8 @@ export class Character {
         // Draw spirit
         const size = 40;
         this.frame += Math.PI / 60;
-        
-        context.drawImage(ImagesLoaded.BODY, 0, 0, 16, 16, this.position.x, this.position.y, size, size);
-        context.drawImage(ImagesLoaded.HEAD, 0, 0, 16, 16, this.position.x, this.position.y, size, size);
+
+        drawImage(context, 'BODY', 0, 0, this.position.x, this.position.y, size);
+        drawImage(context, 'HEAD', 0, 0, this.position.x, this.position.y, size);
     }
 }
