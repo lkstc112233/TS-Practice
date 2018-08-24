@@ -16,7 +16,7 @@ export class Character {
         const size = 40;
         this.frame += Math.PI / 60;
 
-        drawImage(context, 'BODY', 0, 0, this.position.x, this.position.y, size);
-        drawImage(context, 'HEAD', 0, 0, this.position.x, this.position.y, size);
+        drawImage(context, 'BODY', 0, this.velocity.direction, this.position.x, this.position.y, size);
+        drawImage(context, 'HEAD', 0, this.velocity.direction, this.position.x, this.position.y, size);
     }
 }
