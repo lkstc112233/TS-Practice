@@ -12,6 +12,16 @@ export class Character {
         this.velocity.mul(0.97);
         this.position.plus(this.velocity);
 
+        // Boundry check
+        if (this.position.x < 0) {
+            this.velocity.x = 0;
+            this.position.x = 0;
+        }
+        if (this.position.y < 0) {
+            this.velocity.y = 0;
+            this.position.y = 0;
+        }
+
         // Draw spirit
         const size = 40;
         this.frame += this.velocity.length;
