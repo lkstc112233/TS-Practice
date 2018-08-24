@@ -49,6 +49,7 @@ canvas.addEventListener("touchmove",(ev) => {
 });
 
 canvas.addEventListener("touchstart", (ev) => {
+    ev.preventDefault();
     if (ev.touches.length == 1) {
         var rect = canvas.getBoundingClientRect();
         var x = ev.touches[0].clientX - rect.left;
