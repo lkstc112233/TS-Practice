@@ -1,3 +1,10 @@
+export enum Direction {
+    DOWN = 0,
+    UP = 1,
+    LEFT = 2,
+    RIGHT = 3,
+}
+
 export class Point {
     private m_x: number;
     private m_y: number;
@@ -48,6 +55,19 @@ export class Point {
     set length(length: number) {
         this.normalize();
         this.mul(length);
+    }
+
+    get direction(): Direction {
+        if (this.y > Math.abs(this.x)) {
+            return Direction.DOWN;
+        }
+        if (this.x > Math.abs(this.y)) {
+            return Direction.RIGHT;
+        }
+        if (this.y < this.x) {
+            return Direction.UP;
+        }
+        return Direction.LEFT;
     }
 
     normalize() {
