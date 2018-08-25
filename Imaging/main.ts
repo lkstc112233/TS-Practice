@@ -9,8 +9,6 @@ const context = canvas.getContext('2d')!;
 const char = new Character();
 const controller = new Controller();
 
-const vel = new Point();
-
 function loadLoop() {
     if (loadedImageSum != totalImageSum) {
         requestAnimationFrame(loadLoop);
@@ -38,8 +36,6 @@ function gameLoop() {
     char.draw(context);
     controller.draw(context);
 }
-
-const defaultAcc = 0.1;
 
 canvas.addEventListener("touchmove",(ev) => {
     var rect = canvas.getBoundingClientRect();

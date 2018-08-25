@@ -1,6 +1,5 @@
 import { Point } from './xyTuple';
-import { circle, drawImage } from './DrawingHelper';
-import { Images } from './Images';
+import { drawImage } from './DrawingHelper';
 
 export class Character {
     private frame = 0;
