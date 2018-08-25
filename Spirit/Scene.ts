@@ -17,12 +17,13 @@ export class Scene {
     }
 
     draw(context: CanvasRenderingContext2D) {
-        var newly:Spirit[][] = [];
-        this.spirits.map((element) => {
+        this.spirits = ([] as Spirit[]).concat(...(this.spirits.map((element) => {
             const added = element.draw(context);
+            const result = [element];
             if (added) {
-                newly.push(added);
+                result.concat(added);
             }
-        });
+            return result;
+        })));
     }
 }
