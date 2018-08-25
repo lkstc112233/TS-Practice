@@ -1,4 +1,7 @@
 export interface Spirit {
+    // Order used to determine what order to be drawn.
+    // With greater z, the later the spirit will be drawn.
+    // Therefore the less it will be overlaped by another spirit.
     readonly z: number;
     readonly decay: boolean;
     // Draws spirit. Returns newly added spirits.
