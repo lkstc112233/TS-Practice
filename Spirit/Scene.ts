@@ -5,7 +5,7 @@ export interface Sprite {
     readonly z: number;
     readonly decay: boolean;
     // Returns newly added sprites.
-    generate(): Sprite[];
+    generate?(): Sprite[];
     draw(context: CanvasRenderingContext2D): void;
 }
 
@@ -17,7 +17,7 @@ export class Scene {
     }
 
     update() {
-        this.sprites = ([] as Sprite[]).concat(...(this.sprites.map((element) => [element].concat(element.generate()))));
+        this.sprites = ([] as Sprite[]).concat(...(this.sprites.map((element) => [element].concat(element.generate?element.generate():[]))));
         this.sprites = this.sprites.filter((element) => !element.decay);
     }
 
