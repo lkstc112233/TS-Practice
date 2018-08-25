@@ -11,7 +11,7 @@ class CharacterAfterImage implements Sprite {
     }
 
     get decay(): boolean {
-        return this.lifeCountdown > 0;
+        return this.lifeCountdown <= 0;
     }
 
     draw(context: CanvasRenderingContext2D) {
@@ -47,7 +47,7 @@ export class Character implements Sprite {
     }
 
     generate(): Sprite[] {
-        if (this.velocity.length > 0.5) {
+        if (this.velocity.length > 4) {
             return [new CharacterAfterImage(Object.create(this.position), this.frame, this.headOffset, this.velocity.direction)];
         }
         return [];
@@ -82,6 +82,5 @@ export class Character implements Sprite {
 
         drawImage(context, 'BODY', WALKING_STEPS[Math.floor(this.frame / WALKING_CONSTANT)], this.velocity.direction, this.position.x, this.position.y, size);
         drawImage(context, 'HEAD', 0, this.velocity.direction, this.position.x, this.position.y + this.headOffset, size);
-
     }
 }
