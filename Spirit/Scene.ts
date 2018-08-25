@@ -2,7 +2,7 @@ export interface Spirit {
     readonly z: number;
     readonly decay: boolean;
     // Draws spirit. Returns newly added spirits.
-    draw(context: CanvasRenderingContext2D): undefined | Spirit[];
+    draw(context: CanvasRenderingContext2D): Spirit[];
 }
 
 export class Scene {
