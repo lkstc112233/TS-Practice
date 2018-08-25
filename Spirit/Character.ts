@@ -3,7 +3,7 @@ import { drawImage } from './DrawingHelper';
 import { Sprite } from './Scene';
 
 class CharacterAfterImage implements Sprite {
-    private lifeCountdown = 10;
+    private lifeCountdown = 100;
     constructor(private readonly position: Point, private readonly frame: number, private readonly headOffset: number, private readonly direction:Direction) {}
 
     get z(): number {
@@ -16,12 +16,12 @@ class CharacterAfterImage implements Sprite {
 
     draw(context: CanvasRenderingContext2D) {
         // Draw spirit
-        const size = 40 - this.lifeCountdown / 2;
+        const size = 40 - this.lifeCountdown / 20;
         const WALKING_CONSTANT = 30;
         const WALKING_STEPS = [0, 1, 0, 2];
 
         context.save();
-        context.globalAlpha = this.lifeCountdown / 10;
+        context.globalAlpha = this.lifeCountdown / 100;
         drawImage(context, 'BODY', WALKING_STEPS[Math.floor(this.frame / WALKING_CONSTANT)], this.direction, this.position.x, this.position.y, size);
         drawImage(context, 'HEAD', 0, this.direction, this.position.x, this.position.y + this.headOffset, size);
         context.restore();
@@ -48,7 +48,8 @@ export class Character implements Sprite {
 
     generate(): Sprite[] {
         if (this.velocity.length > 4) {
-            return [new CharacterAfterImage(Object.create(this.position), this.frame, this.headOffset, this.velocity.direction)];
+            console.log(this.velocity.length);
+            return [new CharacterAfterImage(this.position.clone(), this.frame, this.headOffset, this.velocity.direction)];
         }
         return [];
     }

@@ -8,18 +8,18 @@ export class Controller {
     private readonly radiusLarge = 70;
 
     touchBegin(pnt: Point) {
-        this.touchStart = Object.create(pnt);
+        this.touchStart = pnt.clone();
         this.touching = this.touchStart;
         this.isTouching = true;
     }
 
     touchUpdate(pnt: Point) {
-        this.touching = Object.create(pnt);
-        const calc = Object.create(this.touching);
+        this.touching = pnt.clone();
+        const calc = this.touching.clone();
         calc.minus(this.touchStart);
         const ratio = calc.length;
         if (calc.length > this.radiusLarge) {
-            this.touching = Object.create(this.touchStart);
+            this.touching = this.touchStart.clone();
             calc.length = this.radiusLarge;
             this.touching.plus(calc);
         }
@@ -33,7 +33,7 @@ export class Controller {
         if (!this.isTouching) {
             return new Point();
         }
-        const result:Point = Object.create(this.touching);
+        const result:Point = this.touching.clone();
         result.minus(this.touchStart);
         result.mul(1 / 70);
         return result;

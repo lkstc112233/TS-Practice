@@ -13,6 +13,13 @@ export class Point {
         this.m_y = y;
     }
 
+    clone(): Point {
+        const point = new Point();
+        point.x = this.x;
+        point.y = this.y;
+        return point;
+    }
+
     get x() : number {
         return this.m_x;
     }
