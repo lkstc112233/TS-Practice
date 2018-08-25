@@ -4,8 +4,9 @@ export interface Spirit {
     // Therefore the less it will be overlaped by another spirit.
     readonly z: number;
     readonly decay: boolean;
-    // Draws spirit. Returns newly added spirits.
-    draw(context: CanvasRenderingContext2D): Spirit[];
+    // Returns newly added spirits.
+    generate(): Spirit[];
+    draw(context: CanvasRenderingContext2D): void;
 }
 
 export class Scene {
@@ -16,18 +17,12 @@ export class Scene {
     }
 
     update() {
+        this.spirits = ([] as Spirit[]).concat(...(this.spirits.map((element) => [element].concat(element.generate()))));
         this.spirits = this.spirits.filter((element) => !element.decay);
     }
 
     draw(context: CanvasRenderingContext2D) {
         this.spirits = this.spirits.sort((sp1, sp2) => sp1.z - sp2.z);
-        this.spirits = ([] as Spirit[]).concat(...(this.spirits.map((element) => {
-            const added = element.draw(context);
-            const result = [element];
-            if (added) {
-                result.concat(added);
-            }
-            return result;
-        })));
+        this.spirits.map((element)=> element.draw(context));
     }
 }
