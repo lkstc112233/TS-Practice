@@ -4,6 +4,7 @@ import { Images } from './Images';
 
 export class Character {
     private frame = 0;
+    private headSpin = 0;
     position = new Point();
     velocity = new Point();
 
@@ -31,7 +32,9 @@ export class Character {
             this.frame -= WALKING_CONSTANT * 4;
         }
 
+        const headOffset = (this.velocity.length * 0.2 + 1) * (Math.sin(this.headSpin += Math.PI / 60) + 1);
+
         drawImage(context, 'BODY', WALKING_STEPS[Math.floor(this.frame / WALKING_CONSTANT)], this.velocity.direction, this.position.x, this.position.y, size);
-        drawImage(context, 'HEAD', 0, this.velocity.direction, this.position.x, this.position.y, size);
+        drawImage(context, 'HEAD', 0, this.velocity.direction, this.position.x, this.position.y + headOffset, size);
     }
 }
